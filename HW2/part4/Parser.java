@@ -129,7 +129,7 @@ public class Parser {
 
     private void printFunc() {
 	mustbe(TK.PRINT); // !
-	System.out.print("printf(\"\", ");
+	System.out.print("printf(\"%d\\n\", ");
 	expr(); //expr
 	System.out.println(");");
     }
