@@ -1,0 +1,8 @@
+Zain Munad, 912077671, zmunad@ucdavis.edu, zmunad
+Kevin Chung, 999832376, kechung@ucdavis.edu, kechung
+
+
+there is no code for part5
+###############PART5##############
+EBNF definition for "for" in E:
+for ::= ';' declaration assignment ',' expr ',' statement ';;' block  ';'

@@ -1,0 +1,15 @@
+running e2c
+compiling the C generated code
+t11.c: In function ‘main’:
+t11.c:4:5: error: expected identifier or ‘(’ before ‘,’ token
+ int , ;
+     ^
+t11.c:5:2: error: expected expression before ‘=’ token
+  = 25;
+  ^
+t11.c:6:2: error: expected expression before ‘=’ token
+  = 12;
+  ^
+t11.c:7:15: error: expected expression before ‘)’ token
+ printf("",  - );
+               ^

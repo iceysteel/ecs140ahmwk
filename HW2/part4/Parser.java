@@ -20,7 +20,11 @@ public class Parser {
     }
 
     private void program() {
+	System.out.println("#include <stdio.h>");
+	System.out.println("int main() ");
+	System.out.println("{");
 	block();
+	System.out.println("}");
     }
 
     private void block(){
@@ -43,7 +47,7 @@ public class Parser {
     private void declaration() {
 	
 	mustbe(TK.DECLARE);
-	
+	System.out.print("int ");
 	if(is(TK.ID))
 	{
 	    //we want to search block to see if the token string
@@ -63,6 +67,7 @@ public class Parser {
 	
 	while( is(TK.COMMA) ) {
 	    scan();
+	    System.out.print(", ");
 	    //Same thing here as described above, if we search and
 	    //it's the same then it's a redeclaration
 	    if(is(TK.ID))
@@ -79,6 +84,7 @@ public class Parser {
 	    
 	    mustbe(TK.ID);
 	}
+	System.out.println(";");
     }
 
     private void statement_list() {
@@ -115,34 +121,42 @@ public class Parser {
 
     private void assignment() {
 	ref_id(); //ref_id
-	mustbe(TK.ASSIGN); //=
+	mustbe(TK.ASSIGN); //=i
+	System.out.print(" = ");
 	expr(); //expr
+	System.out.println(";");
     }
 
     private void printFunc() {
 	mustbe(TK.PRINT); // !
+	System.out.print("printf(\"\", ");
 	expr(); //expr
+	System.out.println(");");
     }
 
     private void doFunc() {
 	mustbe(TK.DO); // <
+	System.out.print("while( 0 >= (");
 	guarded_command(); //guarded_commmand
 	mustbe(TK.ENDDO); // >
     }
 
     private void ifFunc() {
 	mustbe(TK.IF); // [
+	System.out.print("if( 0 >= (");
 	guarded_command(); //guarded_command
 	
 	while(is(TK.ELSEIF))
 	{
 		mustbe(TK.ELSEIF); // |
+		System.out.print("else if( 0 >= (");
 		guarded_command(); //guarded_command
 	}
 
 	if(is(TK.ELSE))
 	{
 		mustbe(TK.ELSE); // %
+		System.out.print("else {");
 		block(); //block
 	}
 
@@ -184,6 +198,7 @@ public class Parser {
 
     private void guarded_command() {
 	expr(); //expr
+	System.out.println(")){");
 	mustbe(TK.THEN); // :
 	block(); //block
     }
@@ -211,8 +226,10 @@ public class Parser {
 	if(is(TK.LPAREN))
 	{
 	    mustbe(TK.LPAREN); // (
+	    System.out.print("(");
 	    expr(); //expr
 	    mustbe(TK.RPAREN); // )
+	    System.out.print(")");
 	}
 	else if(is(TK.ID) || is(TK.TILDE))
 	{
@@ -220,6 +237,7 @@ public class Parser {
 	}
 	else if(is(TK.NUM))
 	{
+	    System.out.print(tok.string);
 	    mustbe(TK.NUM); //number
 	}
     }
@@ -279,6 +297,14 @@ public class Parser {
 	if(is(TK.PLUS) || is(TK.MINUS))
 	{
 	    scan();
+	    if(is(TK.PLUS))
+	    {
+	        System.out.print(" + ");
+	    }
+	    else
+	    {
+	        System.out.print(" - ");
+	    }
 	}	
     }
 
@@ -286,6 +312,14 @@ public class Parser {
 	if(is(TK.TIMES) || is(TK.DIVIDE))
 	{
 	    scan();
+	    if(is(TK.TIMES))
+	    {
+	        System.out.print(" * ");
+	    }
+	    else
+	    {
+	        System.out.print(" / ");
+	    }
 	}
     }
 

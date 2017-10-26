@@ -1,0 +1,73 @@
+running e2c
+compiling the C generated code
+t14.c: In function ‘main’:
+t14.c:4:5: error: expected identifier or ‘(’ before ‘,’ token
+ int , , , , , ;
+     ^
+t14.c:5:2: error: expected expression before ‘=’ token
+  = 44;
+  ^
+t14.c:6:2: error: expected expression before ‘=’ token
+  = 0 - ;
+  ^
+t14.c:7:2: error: expected expression before ‘=’ token
+  = 888 - 999;
+  ^
+t14.c:8:2: error: expected expression before ‘=’ token
+  =  - 999;
+  ^
+t14.c:9:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:10:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:11:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:12:8: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ printf("", 3 - 2 / 4);
+        ^
+t14.c:13:8: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ printf("", (8 - 7 - 6));
+        ^
+t14.c:14:8: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ printf("", (8 - (7 - 6)));
+        ^
+t14.c:15:8: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ printf("", ((8 - 7) - 6));
+        ^
+t14.c:16:2: error: expected expression before ‘=’ token
+  = 1;
+  ^
+t14.c:18:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:19:2: error: expected expression before ‘=’ token
+  =  - 1;
+  ^
+t14.c:20:2: error: expected expression before ‘=’ token
+  = 0;
+  ^
+t14.c:21:2: error: expected expression before ‘=’ token
+  = 10;
+  ^
+t14.c:22:18: error: expected expression before ‘)’ token
+ while( 0 >= (0 - )){
+                  ^
+t14.c:24:2: error: expected expression before ‘=’ token
+  =  - ;
+  ^
+t14.c:25:2: error: expected expression before ‘=’ token
+  =  - 1;
+  ^
+t14.c:26:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:27:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t14.c:28:1: error: expected declaration or statement at end of input
+ }
+ ^
+t14.c:28:1: error: expected declaration or statement at end of input

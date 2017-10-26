@@ -1,0 +1,53 @@
+running e2c
+no such variable ~2a on line 5
+compiling the C generated code
+t43.c: In function ‘main’:
+t43.c:4:1: warning: useless type name in empty declaration
+ int ;
+ ^
+t43.c:5:2: error: expected expression before ‘=’ token
+  = 999;
+  ^
+t43.c:6:15: error: expected expression before ‘)’ token
+ printf("",  - );
+               ^
+t43.c:7:11: error: expected expression before ‘)’ token
+ if( 0 >= ()){
+           ^
+t43.c:8:8: warning: zero-length gnu_printf format string [-Wformat-zero-length]
+ printf("", 1111);
+        ^
+t43.c:9:1: error: expected ‘}’ before ‘else’
+ else {int ;
+ ^
+t43.c:9:1: warning: useless type name in empty declaration
+t43.c:10:2: error: expected expression before ‘=’ token
+  = 8888;
+  ^
+t43.c:11:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:12:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:13:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:14:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:15:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:16:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:17:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:18:12: error: expected expression before ‘)’ token
+ printf("", );
+            ^
+t43.c:19:1: error: expected declaration or statement at end of input
+ }
+ ^
