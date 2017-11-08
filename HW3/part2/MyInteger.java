@@ -20,7 +20,7 @@ class MyInteger extends Element {
 
     public int Print(int val)
     {
-	System.out.printf("%d\n", val);
+	System.out.printf("%d", val);
     }
 
 

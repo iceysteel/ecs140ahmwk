@@ -21,7 +21,7 @@ class MyChar extends Element {
 
     public void Print(char val)
     {
-	System.out.printf("%c\n", val);
+	System.out.printf("'%c'", val);
     }
 
 }

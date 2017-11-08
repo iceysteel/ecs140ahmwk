@@ -3,23 +3,25 @@
 
 abstract class Element{
 
-	Element next = null;
+	public Element next = null;
 	char val;
 
     Element()
     {
-    	val = null;
+    	//val = null;
     }
 
     //meant to be overloaded
-    public Get()
+    public void Get()
     {
 		
     }
 
-    public Set()
+    public void Set()
     {
 	
     }
+
+    abstract public void Print();
     
 }
