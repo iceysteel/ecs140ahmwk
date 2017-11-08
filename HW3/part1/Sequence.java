@@ -1,10 +1,16 @@
 //Create an abstraction called Sequence which is a dynamic array of Element objects
 
-class Sequence{
+class Sequence extends Element{
 
-    Sequence()
+	public Element root;
+	public int sequencePos;
+
+    public Sequence()
     {
-	
+    	root = new Element();
+    	sequencePos = 0;
     }
+
+    
 
 }
