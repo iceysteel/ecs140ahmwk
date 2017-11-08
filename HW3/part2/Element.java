@@ -3,12 +3,21 @@
 
 abstract class Element{
 
+	Element next = null;
+	char val;
+
     Element()
     {
-	
+    	val = null;
     }
 
-    abstract void Print()
+    //meant to be overloaded
+    public Get()
+    {
+		
+    }
+
+    public Set()
     {
 	
     }
