@@ -4,15 +4,17 @@ class Sequence extends Element{
 
     public Element root;
     int numElements;
+    
     //int pos;
 
     public Sequence()
     {
-    	root = new Element();
+    	//root = new Element();
     	numElements = 0;
     }
 
-    public Sequence(Element newRoot, int oldcount){
+    public Sequence Seq(Element newRoot, int oldcount)
+    {
         numElements = oldcount -1 ;
         root = newRoot;
     }
@@ -23,7 +25,7 @@ class Sequence extends Element{
     	//print out the element
 
         //change this
-        Element last = new Element();
+        //Element last = new Element();
         Element current = root;
         int count;
         
@@ -47,8 +49,9 @@ class Sequence extends Element{
     
     public Sequence rest()
     {
-    //return the rest of the elements of the sequence
-        return Sequence(this.root.next, this.numElements);
+        //return the rest of the elements of the sequence
+        Sequence rest = Seq(this.root.next, this.numElements);
+        return rest;
     }
     
     public int length()
@@ -102,7 +105,7 @@ class Sequence extends Element{
         }
         else{ */
             count = 0;
-            numElements = numElements + 1;
+            //numElements = numElements + 1;
             while(count < pos -1 ){
                 current = current.next;
                 count++;

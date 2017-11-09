@@ -18,9 +18,9 @@ class MyInteger extends Element {
 	this.val = val;
     }
 
-    public int Print(int val)
+    public void Print()
     {
-	System.out.printf("%d", val);
+	System.out.printf("%d", Get());
     }
 
 

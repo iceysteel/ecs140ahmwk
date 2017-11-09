@@ -12,7 +12,7 @@ abstract class Element{
     }
 
     //meant to be overloaded
-    public void Get()
+    /*public void Get()
     {
 		
     }
@@ -20,7 +20,7 @@ abstract class Element{
     public void Set()
     {
 	
-    }
+    }*/
 
     abstract public void Print();
     

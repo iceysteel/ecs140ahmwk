@@ -19,9 +19,9 @@ class MyChar extends Element {
 	this.val = val;
     }
 
-    public void Print(char val)
+    public void Print()
     {
-	System.out.printf("'%c'", val);
+	System.out.printf("'%c'", Get());
     }
 
 }
