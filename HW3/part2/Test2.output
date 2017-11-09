@@ -1,0 +1,9 @@
+>>=====  Testing Part 2 =====<<
+**** Test add/Get/Set
+Adding Elements...
+0 A 1 B 2 C 3 D 4 E 5 F 6 G 7 H 8 I 9 J 
+**** Test Print
+Printing sequence: s1 of 0 elements:
+[]
+**** Test first/rest
+Printing head of s1: 

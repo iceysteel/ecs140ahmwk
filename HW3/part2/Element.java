@@ -3,6 +3,7 @@
 
 abstract class Element{
 
+    /*
 	public Element next = null;
 	char val;
 

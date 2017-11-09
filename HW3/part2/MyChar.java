@@ -6,22 +6,22 @@ class MyChar extends Element {
 	
     public MyChar()
     {
-	val = '0';
+	   val = '0';
     }
 
     public char Get()
     {
-	return val;
+	   return val;
     }
 
     public void Set(char val)
     {
-	this.val = val;
+	   this.val = val;
     }
 
     public void Print()
     {
-	System.out.printf("'%c'", Get());
+	   System.out.printf("'%c'", val);
     }
 
 }

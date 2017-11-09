@@ -2,8 +2,11 @@
 
 class Sequence extends Element{
 
-    public Element root;
+    public Sequence root;
     int numElements;
+
+    public Element data;
+    public Sequence next;
     
     //int pos;
 
@@ -13,11 +16,12 @@ class Sequence extends Element{
     	numElements = 0;
     }
 
-    public Sequence Seq(Element newRoot, int oldcount)
-    {
-        numElements = oldcount -1 ;
-        root = newRoot;
-    }
+    // public Sequence Seq(Sequence newRoot, int oldcount)
+    // {
+    //     numElements = oldcount -1 ;
+    //     root = newRoot;
+    //     return root;
+    // }
     
     public void Print()
     {
@@ -26,7 +30,7 @@ class Sequence extends Element{
 
         //change this
         //Element last = new Element();
-        Element current = root;
+        Sequence current = root;
         int count;
         
 
@@ -41,7 +45,7 @@ class Sequence extends Element{
     	System.out.printf("]");
     }
     
-    public Element first()
+    public Sequence first()
     {
 	//return first element of the sequence
         return root;
@@ -49,9 +53,29 @@ class Sequence extends Element{
     
     public Sequence rest()
     {
-        //return the rest of the elements of the sequence
-        Sequence rest = Seq(this.root.next, this.numElements);
-        return rest;
+        if(root == null){
+            return null;
+        }
+        if(root.next != null){
+            //return the rest of the elements of the sequence
+            //Sequence rest = Seq(this.root.next, this.numElements);
+            Sequence rest = new Sequence();
+
+            Sequence current = root.next;
+            int count;
+            
+
+                count = 0;
+                while(count < numElements){
+                    current = current.next;
+                    count++;
+                    rest.add(current, count);
+                }
+            return rest;
+        }
+        else{
+            return null;
+        }
     }
     
     public int length()
@@ -59,24 +83,27 @@ class Sequence extends Element{
 	return numElements;
     }
     
-    public void add(Element elm, int pos)
+    public boolean add(Element elm, int pos)
     {
 	//add element at position and push all elements to the right
-        Element last = new Element();
-        Element current = root;
+        //Element last = elm;
+        Sequence last = new Sequence();
+        last.data = elm;
+
+        Sequence current = root;
         int count;
         
         //first check if the index is even in the right range
-        /*if( pos > numElements){
+        if( pos > numElements){
             return false;
         }
         else if (pos < 1) {
             return false;
         }
-        else{ */
+        else{
             count = 0;
-            numElements = numElements + 1;
-            while(count < pos -1 ){
+            
+            while(count < pos -1){
                 current = current.next;
                 count++;
             }
@@ -84,26 +111,28 @@ class Sequence extends Element{
             last.next = current.next;
             current.next = last;
             
-            //return true;
-        //}
+            numElements = numElements + 1;
+            return true;
+        }
 
     }
     
-    public void delete(int pos)
+    public boolean delete(int pos)
     {
 	//delete element at position and push all elements to the left
-        Element last = new Element();
-        Element current = root;
+        //Element last = new Element();
+        //Sequence last = 
+        Sequence current = root;
         int count;
         
         //first check if the index is even in the right range
-        /*if( pos > numElements){
+        if( pos > numElements){
             return false;
         }
         else if (pos < 1) {
             return false;
         }
-        else{ */
+        else{ 
             count = 0;
             //numElements = numElements + 1;
             while(count < pos -1 ){
@@ -114,8 +143,8 @@ class Sequence extends Element{
             current.next = current.next.next;
             numElements--;
             
-            //return true;
-        //}
+            return true;
+        }
     }
 
 }
