@@ -2,149 +2,133 @@
 
 class Sequence extends Element{
 
-    public Sequence root;
     int numElements;
-
+    
     public Element data;
     public Sequence next;
     
-    //int pos;
-
+    
     public Sequence()
     {
-    	//root = new Element();
-    	numElements = 0;
+	data = null;
+	next = null;
+	
     }
-
-    // public Sequence Seq(Sequence newRoot, int oldcount)
-    // {
-    //     numElements = oldcount -1 ;
-    //     root = newRoot;
-    //     return root;
-    // }
     
     public void Print()
     {
     	System.out.printf("[");
-    	//print out the element
 
-        //change this
-        //Element last = new Element();
-        Sequence current = root;
+	Sequence current = next;
         int count;
         
-
-            count = 0;
-            while(count < numElements){
-                current = current.next;
-                count++;
-                current.Print();
-            }
-        
-
+	System.out.printf(" ");
+	data.Print();
+        for(count = 0; count < length() - 2; count++)
+	{
+	    current = current.next;
+	    System.out.printf(" ");
+            current.data.Print();
+        }
+	
+	System.out.printf(" ");
     	System.out.printf("]");
     }
     
-    public Sequence first()
+    public Element first()
     {
-	//return first element of the sequence
-        return root;
+        return data;
     }
     
     public Sequence rest()
     {
-        if(root == null){
-            return null;
-        }
-        if(root.next != null){
-            //return the rest of the elements of the sequence
-            //Sequence rest = Seq(this.root.next, this.numElements);
-            Sequence rest = new Sequence();
-
-            Sequence current = root.next;
-            int count;
-            
-
-                count = 0;
-                while(count < numElements){
-                    current = current.next;
-                    count++;
-                    rest.add(current, count);
-                }
-            return rest;
-        }
-        else{
-            return null;
-        }
+	return next;
     }
     
     public int length()
     {
+	numElements = 0;
+	
+	Sequence temp = next; //set len to the sequence
+	
+	//iterate through temp and increase counter
+	while(temp != null)
+	{
+	    temp = temp.next;
+	    numElements++;
+	}
+	
 	return numElements;
     }
     
-    public boolean add(Element elm, int pos)
+    public void add(Element elm, int pos)
     {
 	//add element at position and push all elements to the right
-        //Element last = elm;
-        Sequence last = new Sequence();
-        last.data = elm;
 
-        Sequence current = root;
-        int count;
-        
+	int count;
+	Sequence current = this;
+	Sequence swap2 = new Sequence();
+	
         //first check if the index is even in the right range
-        if( pos > numElements){
-            return false;
-        }
-        else if (pos < 1) {
-            return false;
-        }
-        else{
-            count = 0;
-            
-            while(count < pos -1){
-                current = current.next;
-                count++;
-            }
-            
-            last.next = current.next;
-            current.next = last;
-            
-            numElements = numElements + 1;
-            return true;
-        }
-
+        if(pos < 0 || pos > length())
+	{
+	    System.err.println("Error: position out of bounds.");
+	    System.exit(1);
+	}    
+	
+	if (pos == 0)
+	{
+	    Sequence swap1 = new Sequence();
+	    swap1.data = data;
+	    swap1.next = next;
+	    data = elm;
+	    next = swap1;
+	    
+	}
+	else
+	{
+	    for(count = 0; count < pos - 1; count++)
+	    {
+	        current = current.next;
+	    }
+	    
+	    swap2.data = current.data;
+	    swap2.next = current.next;
+	    current.data = elm;
+	    current.next = swap2;
+	}
+        
     }
     
-    public boolean delete(int pos)
+    public void delete(int pos)
     {
+	int count;
+	Sequence current = this;	
+
 	//delete element at position and push all elements to the left
-        //Element last = new Element();
-        //Sequence last = 
-        Sequence current = root;
-        int count;
         
         //first check if the index is even in the right range
-        if( pos > numElements){
-            return false;
-        }
-        else if (pos < 1) {
-            return false;
-        }
-        else{ 
-            count = 0;
-            //numElements = numElements + 1;
-            while(count < pos -1 ){
-                current = current.next;
-                count++;
-            }
-            
-            current.next = current.next.next;
-            numElements--;
-            
-            return true;
-        }
+        if(pos < 0 || pos > length())
+	{
+	    System.err.println("Error: deleting out of bounds.");
+	    System.exit(2);
+	}
+	
+	if(pos == 0)
+	{
+	    data = next.data;
+	    next = next.next;
+	}
+	else
+	{
+	    for(count = 0; count < pos - 1; count++)
+	    {
+		current = current.next;
+	    }
+	    
+	    current.data = current.next.data;
+	    current.next = current.next.next;
+	}
     }
 
 }

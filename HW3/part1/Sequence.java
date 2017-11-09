@@ -2,13 +2,14 @@
 
 class Sequence extends Element{
 
-	public Element root;
-	public int sequencePos;
+	public Element data;
+	public int numElements = 0;
+	public Sequence next;
 
     public Sequence()
     {
-    	root = new Element();
-    	sequencePos = 0;
+	data = null;
+	next = null;
     }
 
     
