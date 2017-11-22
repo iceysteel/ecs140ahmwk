@@ -29,16 +29,16 @@
 			(nth index1 list)
 		;else
 		(if (< (position index2 list) (position index1 list) )
-			(let ((first index2)
-				(second index1))
+			(let ((first index1)
+				(second index2))
 					;do this with the let varibles
-					(if (numberp (position second list)) (
-						;list (member first list)
-						butlast (member first list) (+ (position second (member first list)) -1)
-						)
+					; (if (numberp (position second list)) (
+					; 	;list (member first list)
+					; 	butlast (member first list) (+ (position second (member first list)) -1)
+					; 	)
 					;else return rest of array from first
 					(member first list)
-					)
+					;)
 			)
 			;else
 			(let ((first index1)
@@ -57,7 +57,10 @@
 
 	;else for both arguments in the list(its another if)
 	(if (null (position index2 list))
-		(position index1 list)
+		;NOT CORRECT FIX PLS
+		;(list (nth 
+			(position index1 list)
+			; list))
 		;(print "yep")
 	)
 
