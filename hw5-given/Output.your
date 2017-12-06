@@ -1,0 +1,96 @@
+
+TESTING C_s
+
+testing: fc_course(Course)
+Course = m16a
+
+Course = m21c
+
+Course = m22a
+
+Course = ecs100
+
+Course = ecs122a
+
+Course = ecs122b
+
+Course = ecs151b
+
+Course = ecs152
+
+Course = ecs153
+
+Course = ecs158
+
+Course = ecs163
+
+Course = ecs10
+
+Course = ecs15
+
+Course = ecs30
+
+Course = ecs35
+
+Course = ecs40
+
+Course = ecs50
+
+Course = ecs110
+
+Course = ecs140a
+
+Course = ecs140b
+
+Course = ecs142
+
+Course = ecs150
+
+Course = ecs151a
+
+Course = ecs154a
+
+Course = ecs154b
+
+Course = ecs160
+
+Course = ecs165a
+
+Course = ecs165b
+
+Course = ecs170
+
+Course = ecs172
+
+
+TESTING P_s
+
+testing: prereq_110(Prerequisites)
+Prerequisites = ecs122a
+
+Prerequisites = ecs163
+
+Prerequisites = ecs140a
+
+Prerequisites = ecs154a
+
+Prerequisites = ecs154b
+
+Prerequisites = ecs165a
+
+Prerequisites = ecs172
+
+
+TESTING ECS140AS
+
+testing: ecs140a_students(Students)
+Students = brad
+
+Students = john
+
+Students = nancy
+
+
+TESTING INSTRUCTOR
+
+testing: instructor_names(Instructor)
