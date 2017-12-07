@@ -126,3 +126,33 @@ STUDENTS = nancy
 TESTING ALL_PREREQ
 
 testing: allprereq(ecs140a,All_Pre)
+All_Pre = [m16a,ecs30,ecs40,ecs110]
+
+testing: allprereq(m16a,All_Pre)
+All_Pre = []
+
+testing: allprereq(ecs110,All_Pre)
+All_Pre = [m16a,ecs30,ecs40]
+
+testing: allprereq(ecs50,All_Pre)
+All_Pre = [m16a,ecs30,ecs40]
+
+
+TESTING ALL_LEN
+
+testing: all_length([],All_Len)
+All_Len = 0
+
+testing: all_length([a,b,c,d],All_Len)
+testing: all_length([a,b,[c],d],All_Len)
+testing: all_length([a,b,[c,d],e],All_Len)
+testing: all_length([[[[[]]]]],All_Len)
+testing: all_length([[a,b],[],d],All_Len)
+testing: all_length([a,[b,[c,[d,e],f],g],h],All_Len)
+testing: all_length([[a,b,[],d],[[]],d],All_Len)
+testing: all_length([[a,b,[[[[e,e]]]],d],[[]],d],All_Len)
+testing: all_length([[a,b,[[[a],b]],d],[[],[],[[[]]]],d],All_Len)
+
+TESTING EQ_A_B
+
+testing: equal_a_b([a,b])

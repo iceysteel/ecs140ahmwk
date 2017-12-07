@@ -30,5 +30,32 @@ check(L1,L2) :-
 	member(X,L1),
 	member(X,L2),!.
 
+allprereq([], []) :-
+	!.
+
 allprereq(C,PreList) :-
-	course().
+	course(C,P,_),
+	(
+		P = [H|T]
+	->	allprereq(H,Next),
+		append(Next,[H],PreList);
+		append(P,[],PreList)
+		
+	).
+
+
+%part 2
+all_length([],0).
+    
+all_length( [first|list1] , count) :-
+        %( condition -> then_clause ; else_clause )
+        (atomic(first) ->
+    
+        all_length(list1, I),
+        count is I+1
+        ;
+        all_length(first, I1),
+        all_length(list1, I2),
+        count is I1 + I2
+        ).
+
